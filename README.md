@@ -1,59 +1,52 @@
-# 🚀 Plantilla React Básica (Starter Template)
+# Cards Rick y morty (API)
 
-Plantilla inicial estructurada para proyectos sencillos, ágiles y prototipos rápidos con **React 19**, **TypeScript**, **Vite** y **TailwindCSS v4**.
+Sitio de dos páginas donde se muestran las cards de personajes de la carticatura de Rick y Morty.
 
----
+> Se usa la API de [https://rickandmortyapi.com/](https://rickandmortyapi.com/)
 
-## 📁 Estructura de Carpetas
+> Se muestran de 20 en 20 personajes según el api las responde por página.
 
-```text
-src/
-├── assets/             # Imágenes, SVGs, fuentes e iconografía
-├── components/         # Componentes globales y reutilizables (Navbar, Cards, etc.)
-├── constants/          # Constantes globales, rutas y datos estáticos
-├── hooks/              # Custom hooks reutilizables (useDebounce, useLocalStorage)
-├── lib/                # Instancias de librerías y clientes (Axios, cn utility)
-├── services/           # Llamadas a API y esquemas de validación Zod
-├── styles/             # Estilos globales y configuración TailwindCSS
-├── types/              # Interfaces y definiciones de tipos globales en TypeScript
-├── utils/              # Funciones helper y formateadores
-├── App.tsx             # Componente raíz con la página de presentación y cards
-└── main.tsx            # Punto de entrada de la aplicación con BrowserRouter
-```
+>Se cuenta con un buscador que permite filtrar por nombre mientras se escribe (en tiempo real).
 
----
+>Cuando se escribe en el buscador y no hay resultados se muestra un mensaje de "No se encontraron resultados".
 
-## 📦 Librerías Base Incluidas
+>Cuando se presiona en una card se muestra un modal con la información del personaje, se usa swiper para mostrar las imágenes del personaje.
 
-- **[TailwindCSS v4](https://tailwindcss.com/)**: Estilizado mediante clases utilitarias de alto rendimiento.
-- **[Axios](https://axios-http.com/)**: Cliente HTTP con interceptores preconfigurados (`src/lib/axios.ts`).
-- **[Zod](https://zod.dev/)**: Validación de esquemas en tiempo de ejecución (`src/services/apiService.ts`).
-- **[React Router](https://reactrouter.com/)**: Enrutamiento para aplicaciones SPA.
-- **[Lucide React](https://lucide.dev/)**: Iconos modernos y minimalistas.
-- **[clsx](https://github.com/lukeed/clsx) & [tailwind-merge](https://github.com/dcastil/tailwind-merge)**: Utilidad `cn()` para clases condicionales fluidas.
+>Cada card muestra información como el nombre, especie, estatus, genero, origen y tipo, así como su imagen principal.
 
----
+>Cada card se puede agregar a favoritos, los cuales se guardan en el localStorage con zustand.
 
-## 🎯 Casos de Uso Ideales
+>Al pie de la página se muestra un paginador, este permite navegar entre las páginas de resultados.
 
-1. **Landing Pages**: Páginas de aterrizaje de alta conversión.
-2. **Portafolios Personales**: Showcase para desarrolladores y creativos.
-3. **MVPs y Prototipos Rápidos**: Validación ágil de flujos y productos.
-4. **Sitios de Eventos**: Promoción para conferencias, webinars o hackathons.
-5. **Formularios de Contacto & Waitlists**: Captura de prospectos con validación Zod.
-6. **Micro-sitios de Campañas de Marketing**: Campañas temáticas optimizadas para anuncios.
+> Persistencia de filtros, favoritos y paginador con useSearchParams.
 
----
 
-## 🛠️ Comandos de Desarrollo
 
-```bash
-# Iniciar servidor de desarrollo
-npm run dev
 
-# Compilar para producción
-npm run build
 
-# Vista previa de la compilación
-npm run preview
-```
+![alt text](/public/home-page.png)
+
+
+## Sitio desplegado en netlify
+> https://rick-y-morty-3.netlify.app/
+
+## ¿Qué se uso durante su desarrollo?
+
+- React
+- TailwindCSS
+- lucide-react
+- Typescript
+- React-router-dom
+- Tankstack-query (react-query)
+- Zustand
+- Axios
+
+
+
+
+
+
+## INICIO
+![alt text](/public/home-page.png)
+![alt text](/public/favorites-page-1.png)
+![alt text](/public/favorites-page-2.png)
