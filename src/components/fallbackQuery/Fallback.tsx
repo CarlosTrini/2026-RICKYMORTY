@@ -1,3 +1,4 @@
+import { RefreshCcw } from 'lucide-react';
 import { useEffect, useState } from 'react';
 // import { useState, useEffect } from 'react';
 
@@ -11,10 +12,11 @@ interface Props {
     data?: unknown | null;
     loadingClassName?: string; // de preferencia mandar solo el height y width
     errorClassName?: string; // de preferencia mandar solo el height y width
+    onRetry?: () => void; // para refetch
 }
 
 
-export default function Fallback({ id, children, isError, isLoading, data, errorMsg, loadingClassName, errorClassName, noDataPlaceholder }: Props) {
+export default function Fallback({ id, children, isError, isLoading, data, errorMsg, loadingClassName, errorClassName, noDataPlaceholder, onRetry }: Props) {
 
     const [dataInfo, setDataInfo] = useState(data);
     const loadingStyles = loadingClassName ? loadingClassName : `min-h-20 w-full`;
@@ -63,6 +65,14 @@ export default function Fallback({ id, children, isError, isLoading, data, error
                             <h2 className="text-lg font-bold text-theme-light-gray">
                                 {errorMsg ? errorMsg : "No se pudo cargar la información"}
                             </h2>
+                            {
+                                onRetry && (
+                                    <div className="mt-5 flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-200 border border-slate-700/60 text-xs font-medium transition-all">
+                                        <RefreshCcw className="w-4 h-4" />
+                                        <button onClick={onRetry}> Intentar nuevamente</button>
+                                    </div>
+                                )
+                            }
                         </div>)
                 }
 

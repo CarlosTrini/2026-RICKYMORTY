@@ -21,10 +21,11 @@ const Home = () => {
 
 
     // QUERY
-    const { data: dataCharacters, isLoading, error } = useQuery({
+    const { data: dataCharacters, isLoading, error, refetch } = useQuery({
         queryKey: ['character-home', page],
         queryFn: () => apiService.getCharacters(page),
-        placeholderData: (previousData) => previousData
+        retry: 2,
+        // placeholderData: (previousData) => previousData
     });
 
 
@@ -48,7 +49,6 @@ const Home = () => {
 
     }
 
-
     return (
         <>
             {/* TITULO PAGINA */}
@@ -64,6 +64,7 @@ const Home = () => {
                 id="fallback-characters-home"
                 errorClassName="mt-50"
                 loadingClassName="mt-50"
+                onRetry={() => refetch()}
             >
 
                 <main className="min-h-[70vh] relative pb-10 mb-10">

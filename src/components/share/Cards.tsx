@@ -4,8 +4,9 @@ import { Modal } from "../modal";
 import { useModal } from "../modal/useModal";
 import { favoritesStore } from "@/store/favoritesStores";
 import Tooltip from "../tooltip/Tooltip";
+import FallbackImage from "./FallbackImage";
 
-interface Props {
+export interface Props {
     character: Character;
 }
 
@@ -24,7 +25,6 @@ const statusConfig = {
     },
 };
 
-const emptyImage = '/images/empty-image.png';
 
 const Cards = ({ character }: Props) => {
 
@@ -48,8 +48,8 @@ const Cards = ({ character }: Props) => {
                 onClick={toggleModal}
 
             >
-                <figure className="md:min-h-60 max-w-60 max-h-60 mx-auto rounded-lg overflow-hidden">
-                    <img src={character?.image ? character.image : emptyImage} alt={character.name} className="w-full object-cover" />
+                <figure className="sm:min-w-55 sm:min-h-55 max-w-60 max-h-60 mx-auto rounded-lg overflow-hidden">
+                    <FallbackImage src={character?.image} alt={character.name} className="w-full object-cover" />
                 </figure>
                 <div className="mt-2 flex justify-between">
                     <p className=" italic text-primary font-medium truncate max-w-[80%]">{character.name}</p>
@@ -86,7 +86,7 @@ const Cards = ({ character }: Props) => {
             >
                 <div className="mt-10">
                     <figure className="min-h-55 max-w-60 max-h-60 mx-auto ">
-                        <img src={character?.image ? character.image : emptyImage} alt={character.name} className="w-full object-cover" />
+                        <FallbackImage src={character?.image} alt={character.name} className="w-full object-cover" />
                     </figure>
                     <div className="p-4 space-y-2.5">
                         <p className="text-accent italic font-bold text-center text-lg">{character.name}</p>

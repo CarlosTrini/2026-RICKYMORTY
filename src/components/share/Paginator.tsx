@@ -50,6 +50,7 @@ const Paginator = ({
                 hasPrev && (
                     <div>
                         <button
+                            aria-label='first-page'
                             onClick={() => onPageChange(1)}
                             className={`${chevronClass} `}
                         >
@@ -57,6 +58,7 @@ const Paginator = ({
                         </button>
 
                         <button
+                            aria-label='previous-page'
                             disabled={!hasPrev}
                             onClick={() => onPageChange(page - 1)}
                             className={`${chevronClass} `}
@@ -70,7 +72,7 @@ const Paginator = ({
                 buttons.map(bPage =>
 
                     bPage === 'ellipse'
-                        ? <span key={bPage + page.toString()} className=" text-muted">
+                        ? <span key={bPage + page.toString()} className=" text-muted" aria-label='ellipsis-paginator'>
                             <EllipsisIcon className="mt-2" />
                         </span>
                         : <button
@@ -90,6 +92,7 @@ const Paginator = ({
                     <div>
 
                         <button
+                            aria-label='last-page'
                             disabled={!hasNext}
                             onClick={() => onPageChange(page + 1)}
                             className={`${chevronClass} `}
@@ -97,6 +100,7 @@ const Paginator = ({
                             <ChevronRightIcon className="w-5 h-5" />
                         </button>
                         <button
+                            aria-label='next-page'
                             disabled={!hasNext}
                             onClick={() => onPageChange(42)}
                             className={`${chevronClass} `}
