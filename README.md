@@ -23,8 +23,6 @@ Sitio de dos páginas donde se muestran las cards de personajes de la carticatur
 
 
 
-> Se usa la API de [https://rickandmortyapi.com/](https://rickandmortyapi.com/)
-
 ## Sitio desplegado en netlify
 > https://rick-y-morty-3.netlify.app/
 
